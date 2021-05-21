@@ -1,0 +1,58 @@
+{
+	"name": "noderq",
+	"description": "A module providing short-hands for some commands",
+	"version": "0.1.0",
+	"author": "Clazex <clazex.y@gmail.com>",
+	"license": "MIT",
+	"bin": "bin/index.js",
+	"scripts": {
+		"build": "terser --ecma 2020 -c passes=5 -m --toplevel -o bin/index.js -- src/index.js",
+		"prepublishOnly": "npm run build"
+	},
+	"files": [
+		"bin"
+	],
+	"devDependencies": {
+		"terser": "^5.7.0"
+	},
+	"peerDependencies": {
+		"@babel/register": "^7.0.0",
+		"coffeescript": "^2.0.0",
+		"esm": "^3.0.0",
+		"node": ">=14",
+		"ts-node": "^9.0.0",
+		"v8-compile-cache": "^2.0.0"
+	},
+	"peerDependenciesMeta": {
+		"@babel/register": {
+			"optional": true
+		},
+		"coffeescript": {
+			"optional": true
+		},
+		"esm": {
+			"optional": true
+		},
+		"node": {
+			"optional": true
+		},
+		"ts-node": {
+			"optional": true
+		},
+		"v8-compile-cache": {
+			"optional": true
+		}
+	},
+	"homepage": "https://github.com/Clazex/noderq#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Clazex/noderq.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Clazex/noderq/issues"
+	},
+	"engineStrict": true,
+	"engines": {
+		"node": ">=14"
+	}
+}
