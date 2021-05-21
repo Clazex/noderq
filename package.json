@@ -1,7 +1,7 @@
 {
 	"name": "noderq",
 	"description": "A module providing short-hands for some commands",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"author": "Clazex <clazex.y@gmail.com>",
 	"license": "MIT",
 	"bin": "bin/index.js",
@@ -51,6 +51,15 @@
 	"bugs": {
 		"url": "https://github.com/Clazex/noderq/issues"
 	},
+	"keywords": [
+		"cli",
+		"command",
+		"helper",
+		"node",
+		"require",
+		"util",
+		"utility"
+	],
 	"engineStrict": true,
 	"engines": {
 		"node": ">=14"
