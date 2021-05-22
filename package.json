@@ -1,12 +1,12 @@
 {
 	"name": "noderq",
 	"description": "A module providing short-hands for some commands",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"author": "Clazex <clazex.y@gmail.com>",
 	"license": "MIT",
 	"bin": "bin/index.js",
 	"scripts": {
-		"build": "terser --ecma 2020 -c passes=5 -m --toplevel -o bin/index.js -- src/index.js",
+		"build": "terser --ecma 2020 -c passes=5 -m --toplevel --source-map includeSources,url=index.js.map -o bin/index.js -- src/index.js",
 		"prepublishOnly": "npm run build"
 	},
 	"files": [
