@@ -7,12 +7,15 @@
 	"bin": "bin/index.js",
 	"scripts": {
 		"build": "terser --ecma 2020 -c passes=5 -m --toplevel --source-map includeSources,url=index.js.map -o bin/index.js -- src/index.js",
+		"commit": "cz",
 		"prepublishOnly": "npm run build"
 	},
 	"files": [
 		"bin"
 	],
 	"devDependencies": {
+		"commitizen": "^4.2.4",
+		"cz-conventional-changelog": "^3.2.0",
 		"terser": "^5.7.0"
 	},
 	"peerDependencies": {
@@ -50,6 +53,11 @@
 	},
 	"bugs": {
 		"url": "https://github.com/Clazex/noderq/issues"
+	},
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
 	},
 	"keywords": [
 		"cli",
