@@ -1,5 +1,6 @@
 {
 	"recommendations": [
-		"clazex.lux-pack-frontend"
+		"clazex.lux-pack-frontend",
+		"arcanis.vscode-zipfs"
 	]
 }
