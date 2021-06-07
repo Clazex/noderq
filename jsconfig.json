@@ -1,0 +1,21 @@
+{
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"bin"
+	],
+	"compilerOptions": {
+		"alwaysStrict": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"lib": [
+			"ES2020"
+		],
+		"module": "commonJS",
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true
+	}
+}
