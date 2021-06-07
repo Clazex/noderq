@@ -6,7 +6,7 @@
 
 ```bash
 # In terminal
-npx noderq <magic string>
+npx noderq <magic string> [node options]...
 # Remove `npx` prefix when in `package.json`
 ```
 
@@ -21,6 +21,8 @@ A `magic string` contains a sequence of characters, each represents for a module
 |     b     |         @babel/register         |
 |     c     |      coffeescript/register      |
 |     e     |               esm               |
+|     p     |             ./.pnp              |
+|     s     |   source-map-support/register   |
 |     t     |        ts-node/register         |
 |     T     | ts-node/register/transpile-only |
 |     v     |        v8-compile-cache         |
