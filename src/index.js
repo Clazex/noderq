@@ -2,20 +2,6 @@
 
 const spawn = require("child_process").spawnSync;
 
-//#region Util Functions
-
-/**
- * Distinct values of an array
- * @template T
- * @param {T[]} array
- * @return {T[]} distinctedArray
- */
-function distinct(array) {
-	return Array.from(new Set(array));
-}
-
-//#endregion
-
 const { argv } = process;
 
 if (argv.length < 3) {
@@ -24,39 +10,41 @@ if (argv.length < 3) {
 
 //#region Argument parsing
 
+/** @type { Record<string, string | null> } */
+const magicCharToModuleMap = {
+	b: "@babel/register",
+	c: "coffeescript/register",
+	e: "esm",
+	l: null,
+	t: "ts-node/register",
+	T: "ts-node/register/transpile-only",
+	v: null
+};
+
+
 const magicString = argv[2];
+const magicChars = new Set(magicString.split(""));
 
-const local = /l/u.test(magicString);
-const cache = /v/u.test(magicString);
+const local = magicChars.has("l");
+const cache = magicChars.has("v");
 
-const modules = distinct(magicString.split(""))
-	.map((i) => {
-		switch (i) {
-			case "b":
-				return "@babel/register";
-			case "c":
-				return "coffeescript/register"
-			case "e":
-				return "esm";
-			case "l":
-				return null;
-			case "t":
-				return "ts-node/register";
-			case "T":
-				return "ts-node/register/transpile-only";
-			case "v":
-				return null;
-			default:
-				return undefined;
-		}
-	})
-	.filter((i) => i);
+
+/** @type { string[] } */
+let modules = [];
+magicChars.forEach((char) => {
+	const value = magicCharToModuleMap[char];
+	if (value) {
+		modules.push(value);
+	}
+});
+
+if (cache) {
+	modules.unshift("v8-compile-cache");
+}
+
 
 const args = [
-	...cache
-		? ["-r", "v8-compile-cache"]
-		: [],
-	...modules.reduce((a, i) => [...a, "-r", i], []),
+	...modules.map((mod) => ["-r", mod]).flat(1),
 	...argv.slice(3)
 ];
 
