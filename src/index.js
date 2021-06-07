@@ -16,6 +16,8 @@ const magicCharToModuleMap = {
 	c: "coffeescript/register",
 	e: "esm",
 	l: null,
+	p: "./.pnp",
+	s: "source-map-support/register",
 	t: "ts-node/register",
 	T: "ts-node/register/transpile-only",
 	v: null

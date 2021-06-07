@@ -1,7 +1,7 @@
 {
 	"name": "noderq",
 	"description": "A module providing short-hands for some commands",
-	"version": "0.1.2",
+	"version": "0.2.0",
 	"author": "Clazex <clazex.y@gmail.com>",
 	"license": "MIT",
 	"bin": "bin/index.js",
